@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
         type: String, required: true
     },
     google_id: {
+        type: String,
+        unique: true
+    },
+    username: {
         type: String
     },
     email: {
@@ -16,6 +20,18 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String
+    },
+    passwordToken: {
+        type: String,
+        unique: true
+    },
+    emailToken: {
+        type: String,
+        unique: true
+    },
+    emailVerified: {
+        type: Boolean,
+        default: false
     },
     createdAt: { type: Date, default: Date.now }
 })
